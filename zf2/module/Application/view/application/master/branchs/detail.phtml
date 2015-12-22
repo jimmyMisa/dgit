@@ -1,0 +1,51 @@
+
+<ol id="plist" class="clearfix">
+	<li><a href="index.html">トップページ</a></li>
+	<li><a href="eigyo01.html.html">営業所一覧</a></li>
+	<li><span>営業所詳細</span></li>
+</ol>
+
+<?php
+	foreach($data as $branch){
+?>
+<table class="tbl_type01 mb1e w100">
+	<tr>
+		<th class="w25">営業所コード</th>
+		<td class="w75"><?php echo $branch['branch_cd']; ?></td>
+	</tr>
+	<tr>
+		<th>営業所名</th>
+		<td><?php echo $branch['branch_name']; ?></td>
+	</tr>
+	<tr>
+		<th>郵便番号</th>
+		<td><?php echo $branch['branch_postcode']; ?></td>
+	</tr>
+	<tr>
+		<th>住所１</th>
+		<td><?php echo $branch['branch_add1']; ?></td>
+	</tr>
+	<tr>
+		<th>住所２</th>
+		<td><?php echo $branch['branch_add2']; ?></td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td><?php echo $branch['branch_tel']; ?></td>
+	</tr>
+	<tr>
+		<th>FAX番号</th>
+		<td><?php echo $branch['branch_fax']; ?></td>
+	</tr>
+</table>
+
+<div class="ta_c"><button onclick="location.href='../index'">戻る</button>　<button onclick="location.href='../edit/<?php echo $branch['id']; ?>'">編集</button></div>
+
+<?php
+	}
+?>
+
+
+
+
+

@@ -17,4 +17,8 @@ class TableModel extends TableGateway
 		}
 		parent::__construct($this->name,$adapter);
 	}
+    public function insert($data) {
+        $resultSet = $this->tableGateway->insert($data);
+        return $resultSet;
+    }
 }

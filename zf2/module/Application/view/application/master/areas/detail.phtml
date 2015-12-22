@@ -1,0 +1,27 @@
+		<ol id="plist" class="clearfix">
+			<li><a href="/area">トップページ</a></li>
+			<li><a href="/area">エリア一覧</a></li>
+			<li><span>エリア詳細</span></li>
+		</ol>
+
+		<table class="tbl_type01 mb1e w100">
+			<?php foreach ($data as $record):
+				$id=$record['id'];
+			?>
+
+			<tr>
+				<th class="w25">エリアコード</th>
+				<td class="w75"><?php echo $record['area_cd'] ?></td>
+			</tr>
+			<tr>
+				<th>エリア名</th>
+				<td><?php echo $record['area_name'] ?></td>
+			</tr>
+			<?php endforeach ?>
+			
+		</table>
+
+		<div class="ta_c">
+			<button onclick="location.href='index'">戻る</button>　
+			<button onclick="location.href='edit?id=<?php echo $id; ?>'">編集</button>
+		</div>

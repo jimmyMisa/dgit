@@ -107,6 +107,8 @@ return array(
             'Application\Controller\Index' => Controller\IndexController::class,
             'Application\Controller\Test' => Controller\TestController::class,
             'Application\Controller\Master\Departments' => Controller\Master\DepartmentsController::class,
+            'Application\Controller\Master\Branchs' => Controller\Master\BranchsController::class,
+            'Application\Controller\Master\Areas' => Controller\Master\AreasController::class,
         ),
     ),
     'view_manager' => array(

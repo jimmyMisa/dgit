@@ -14,22 +14,16 @@
 	?>
 	<tr>
 		<td>
-			<a href="bumon02.html">
+			<a href="detail?id=<?php echo $record['id'] ; ?>">
 				<?php echo $record['post_cd']; ?>
 			</a>
 		</td>
 		<td>
-			<a href="bumon02.html">
+			<a href="detail?id=<?php echo $record['id'] ; ?>">
 				<?php echo $record['post_name']; ?>
 			</a>
 		</td>
 	<?php
 		}
 	?>
-	<form action="update" method="POST">
-		<input type="text" name="post_cd" />
-		<input type="text" name="post_name" />
-		<input type="submit" value="send" />
-		
-	</form>
 </table>

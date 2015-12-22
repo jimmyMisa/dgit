@@ -35,6 +35,7 @@ class DepartmentsController extends AbstractActionController
     	$id=$this->getEvent()->getRouteMatch()->getParam('id');
 		
         $department = $this->getServiceLocator()->get('Model\Department');
+
         $data = $department->getRecord($id);
 
         $view = new ViewModel(array(
@@ -44,10 +45,17 @@ class DepartmentsController extends AbstractActionController
     }
     public function updateAction()
     {
+    	$id=$this->getEvent()->getRouteMatch()->getParam('id');
+		
 		$posted=$this->request->getPost();
 		
+		
+		
+		
+        //$data = $department->updateRecord($queryied);
+		
         $view = new ViewModel(array(
-                'data' => $posted,
+                'data' => $data,
             ));
 
         //$view->setTermplate('index/index');

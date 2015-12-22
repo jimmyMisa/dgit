@@ -15,6 +15,8 @@ use Zend\Db\Adapter\Adapter;
 use Zend\Db\TableGateway\Feature\GlobalAdapterFeature;
 use Application\Model\Department;
 use Application\Model\Data\MstPost;
+use Application\Model\Branch;
+use Application\Model\Data\MstBranch;
 
 class Module
 {
@@ -62,6 +64,14 @@ class Module
                 'Model\Department' =>  function($sm) {
                     $data = array('department' => new MstPost(), );
                     return new Department($data);
+                },
+                'Model\Branch' =>  function($sm) {
+                    $data = array('branch' => new MstBranch(), );
+                    return new Branch($data);
+                },
+                'Model\Area' =>  function($sm) {
+                    $data = array('area' => new MstArea(), );
+                    return new Area($data);
                 },
             ),
         );

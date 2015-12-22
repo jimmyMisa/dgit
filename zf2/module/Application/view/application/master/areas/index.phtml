@@ -1,0 +1,34 @@
+<ol id="plist" class="clearfix">
+	<li><a href="index.html">トップページ</a></li>
+	<li><span>エリア一覧</span></li>
+</ol>
+
+<form method="post" action="areas/update">
+	<table class="tbl_type06 w100">
+		<tr>
+			<th class="w13">エリアコード</th>
+			<td class="w32"><input class="w90" type="text" name="area_cd"></td>
+			<th class="w13">エリア名</th>
+			<td class="w32"><input class="w90" type="text" name="area_name"></td>
+			<td class="w10 btn"><input type="submit" value="検索"></td>
+		</tr>
+	</table>
+</form>
+
+<table class="tbl_type03 w100">
+	<tr>
+		<th class="w30">エリアコード</th>
+		<th class="w70">エリア名</th>
+	</tr>
+	<?php foreach ($data as $record): ?>
+	<tr>
+		<td>
+			<a href="detail?id=<?php echo $record['id']; ?>"><?php echo $record['area_cd']; ?></a>
+		</td>
+		<td>
+			<a href="detail?id=<?php echo $record['id']; ?>"><?php echo $record['area_name']; ?></a>
+		</td>
+	</tr>	
+	<?php endforeach ?>
+</table>
+	

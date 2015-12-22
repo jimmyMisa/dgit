@@ -1,16 +1,16 @@
 <?php
 namespace Application\Model;
 
-use Application\Model\Data\MstPost;
+use Application\Model\Data\MstBranch;
 use Zend\Db\TableGateway\Feature\GlobalAdapterFeature;
 
 
-class Department
+class Branch
 {
-    protected $department = null;
+    protected $branch = null;
 
     public function __construct($data = null){
-        $this->department = $data['department'];
+        $this->branch = $data['branch'];
     }
 
 
@@ -24,7 +24,7 @@ class Department
 
 			$connection->beginTransaction();
 			try {
-				$result = $this->department->getRecord($id);
+				$result = $this->branch->getRecord($id);
 				$connection->commit();
 			} catch (\Exception $e) {
 				$connection->rollback();
@@ -34,6 +34,27 @@ class Department
 		}
 		else $connection->rollback();
     }
+	
+	public function updateRecord($data)
+	{
+        $result = null;
+
+        $adapter = GlobalAdapterFeature::getStaticAdapter();
+        $connection = $adapter->getDriver()->getConnection();
+
+        $connection->beginTransaction();
+        try {
+            $result = $this->branch->updateRecord($data);
+            $connection->commit();
+        } catch (\Exception $e) {
+            $connection->rollback();
+        }
+
+        return $result;
+		
+		
+		
+	}
 
     public function getRecord($id = null)
     {
@@ -44,7 +65,7 @@ class Department
 
         $connection->beginTransaction();
         try {
-            $result = $this->department->getRecord($id);
+            $result = $this->branch->getRecord($id);
             $connection->commit();
         } catch (\Exception $e) {
             $connection->rollback();

@@ -1,0 +1,66 @@
+
+<ol id="plist" class="clearfix">
+	<li><a href="index.html">トップページ</a></li>
+	<li><span>営業所一覧</span></li>
+</ol>
+
+<form>
+	<table class="tbl_type06 w100">
+		<tr>
+			<th class="w13">営業所コード</th>
+			<td class="w32"><input class="w90" type="text"></td>
+			<th class="w13">営業所名</th>
+			<td class="w32"><input class="w90" type="text"></td>
+			<td class="w10 btn"><input type="submit" value="検索"></td>
+		</tr>
+	</table>
+</form>
+
+<table class="tbl_type03 w100">
+
+
+	<tr>
+		<th class="w10">営業所コード</th>
+		<th class="w15">営業所名</th>
+		<th class="w30">住所１</th>
+		<th class="w30">住所２</th>
+		<th class="w15">電話番号</th>
+	</tr>
+	<?php
+		foreach ($data as $record) {
+	?>
+	<tr>
+		<td>
+			<a href="detail/<?php echo $record['id'] ; ?>">
+				<?php echo $record['branch_cd']; ?>
+			</a>
+		</td>
+		<td>
+			<a href="detail/<?php echo $record['id'] ; ?>">
+				<?php echo $record['branch_name']; ?>
+			</a>
+		</td>
+		<td>
+			<a href="detail/<?php echo $record['id'] ; ?>">
+				<?php echo $record['branch_add1']; ?>
+			</a>
+		</td>
+		<td>
+			<a href="detail/<?php echo $record['id'] ; ?>">
+				<?php echo $record['branch_add2']; ?>
+			</a>
+		</td>
+		<td>
+			<a href="detail/<?php echo $record['id'] ; ?>">
+				<?php echo $record['branch_tel']; ?>
+			</a>
+		</td>
+	<?php
+		}
+	?>
+
+</table>
+
+
+
+

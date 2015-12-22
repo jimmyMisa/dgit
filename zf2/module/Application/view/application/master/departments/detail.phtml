@@ -1,0 +1,29 @@
+		<ol id="plist" class="clearfix">
+			<li><a href="index.html">トップページ</a></li>
+			<li><a href="bumon01.html">部門一覧</a></li>
+			<li><a href="bumon02.html">部門詳細</a></li>
+			<li><span>部門詳細</span></li>
+		</ol>
+		
+
+		<form method="post" action="/application/master/departments/update?id=">
+		<table class="tbl_type01 mb1e w100">
+			<?php foreach ($data as $record): ?>		
+					<input type="hidden" name="id" value="<?php echo $record['id']; ?>">
+			<tr>
+				<th class="w25">部門コード</th>
+				<td class="w75"><input class="w60" type="text" value="<?php echo $record['post_cd']; ?>" name="post_cd"></td>
+			</tr>
+			<tr>
+				<th>部門名</th>
+				<td><input class="w60" type="text" value="<?php echo $record['post_name']; ?>" name="post_name"></td>
+			</tr>
+			<?php endforeach ?>
+		</table>
+		
+
+		<div class="ta_c">
+			<button onclick="location.href='bumon02.html'">戻る</button>　
+			<input type="submit" value="登録" />
+		</div>
+		</form>
