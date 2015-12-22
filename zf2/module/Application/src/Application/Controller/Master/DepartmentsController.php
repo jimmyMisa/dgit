@@ -30,6 +30,18 @@ class DepartmentsController extends AbstractActionController
 
         return $view;
     }
+    public function detailAction()
+    {   
+    	$id=$this->getEvent()->getRouteMatch()->getParam('id');
+		
+        $department = $this->getServiceLocator()->get('Model\Department');
+        $data = $department->getRecord($id);
+
+        $view = new ViewModel(array(
+                'data' => $data,
+            ));
+        return $view;
+    }
     public function updateAction()
     {
 		$posted=$this->request->getPost();
