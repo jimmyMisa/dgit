@@ -59,29 +59,15 @@ class BranchsController extends AbstractActionController
     	$id=$this->getEvent()->getRouteMatch()->getParam('id');
 		$data=null;
 		
-		$posted=$this->request->getPost()->toArray();
-		
+		$data=$this->request->getPost()->toArray();
+		$data['id']=$id;
         $branch = $this->getServiceLocator()->get('Model\Branch');
 		
-		$toInsert=array();
-		
-        $datas = $branch->getRecord($id);
-		foreach($datas as $data){
-			$data['branch_cd']=$posted['branch_cd'];
-			$data['branch_name']=$posted['branch_name'];
-			$data['branch_postcode']=$posted['branch_postcode'];
-			$data['branch_add1']=$posted['branch_add1'];
-			$data['branch_add2']=$posted['branch_add2'];
-			$data['branch_tel']=$posted['branch_tel'];
-			$data['branch_fax']=$posted['branch_fax'];
-		}
-		foreach($data as $key=>$row){
-			$toInsert[$key]=$row;
-		}
-		$data = $branch->updateRecord($toInsert);
+		$updated = $branch->updateRecord($data);
+		var_dump($data);
 		
         $view = new ViewModel(array(
-				'id' => $toInsert['id'],
+				'id' => $data['id'],
             ));
 
         //$view->setTermplate('index/index');

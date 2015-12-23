@@ -44,7 +44,7 @@ class Branch
 
         $connection->beginTransaction();
         try {
-            $result = $this->branch->updateRecord($data);
+            $result = $this->branch->update($data,array("id"=>$data['id']));
             $connection->commit();
         } catch (\Exception $e) {
             $connection->rollback();
