@@ -2,9 +2,9 @@
 
 namespace Application\Model\Data;
 
-class MstBranch extends TableModel
+class MstComGrd extends TableModel
 {
-	protected $name = 'mst_branch';
+	protected $name = 'mst_com_grd';
 
 	public function getRecord($id = null)
 	{

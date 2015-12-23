@@ -17,6 +17,10 @@ use Application\Model\Department;
 use Application\Model\Data\MstPost;
 use Application\Model\Branch;
 use Application\Model\Data\MstBranch;
+use Application\Model\Enterprise;
+use Application\Model\Data\MstComGrd;
+use Application\Model\Area;
+use Application\Model\Data\MstArea;
 
 class Module
 {
@@ -72,6 +76,10 @@ class Module
                 'Model\Area' =>  function($sm) {
                     $data = array('area' => new MstArea(), );
                     return new Area($data);
+                },
+                'Model\Enterprise' =>  function($sm) {
+                    $data = array('enterprise' => new MstComGrd(), );
+                    return new Enterprise($data);
                 },
             ),
         );

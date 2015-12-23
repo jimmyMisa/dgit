@@ -52,9 +52,16 @@ class AreasController extends AbstractActionController
 
     public function indexAction()
     {
-        $area = new Area();
+        $area = $this->getServiceLocator()->get('Model\Area');
 
-        $data = $area->getRecord();
+		if($data=$this->request->isPost()){
+			$data=$this->request->getPost()->toArray();
+			$data = $area->getRecordWhere($data);
+			
+		}
+		else{
+			$data = $area->getRecord();
+		}
 
         $view = new ViewModel(array(
                 'data' => $data,
@@ -70,16 +77,9 @@ class AreasController extends AbstractActionController
        if(isset($request['id'])) $id = $request['id'];
        else $id = 0;
        $result = $area->saveArea($request,$id);
-         /*if ($area->getRecord($id)) {
-             $result = $area->saveArea($request,$id);
-         } else {
-             throw new \Exception('Album id does not exist');
-         }*/
-         
-         //$result = $area->adding();
-            return new ViewModel(array(
-                'data' => $result,
-            ));
+		return new ViewModel(array(
+			'id' => $id,
+		));
         
     }
 

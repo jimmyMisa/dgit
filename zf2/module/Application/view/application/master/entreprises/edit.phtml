@@ -1,0 +1,38 @@
+
+
+<?php
+	foreach($data as $record){
+?>
+<ol id="plist" class="clearfix">
+	<li><a href="index.html">トップページ</a></li>
+	<li><a href="../index">企業規模一覧</a></li>
+	<li><a href="../detail/<?php echo $record['id']; ?>">企業規模詳細</a></li>
+	<li><span>企業規模編集</span></li>
+</ol>
+
+<form action="../update/<?php echo $record['id']; ?>" method="POST">
+<table class="tbl_type01 mb1e w100">
+	<tr>
+		<th class="w25">企業規模コード</th>
+		<td class="w75"><input name="com_grd_cd" class="w60" type="text" value="<?php echo $record['com_grd_cd']; ?>"></td>
+	</tr>
+	<tr>
+		<th>企業規模名</th>
+		<td><input class="w60" name="com_grd_name" type="text" value="<?php echo $record['com_grd_name']; ?>"></td>
+	</tr>
+</table>
+
+	<div class="ta_c">
+		<button onclick="event.preventDefault();location.href='../detail/<?php echo $record['id']; ?>'">戻る</button>
+		<button onclick="event.preventDefault();this.form.submit()'">編集</button>
+	</div>
+</form>
+<?php
+	}
+?>
+
+
+
+
+
+

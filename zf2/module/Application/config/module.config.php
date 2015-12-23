@@ -109,6 +109,7 @@ return array(
             'Application\Controller\Master\Departments' => Controller\Master\DepartmentsController::class,
             'Application\Controller\Master\Branchs' => Controller\Master\BranchsController::class,
             'Application\Controller\Master\Areas' => Controller\Master\AreasController::class,
+            'Application\Controller\Master\Enterprises' => Controller\Master\EnterprisesController::class,
         ),
     ),
     'view_manager' => array(

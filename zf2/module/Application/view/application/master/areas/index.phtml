@@ -3,13 +3,13 @@
 	<li><span>エリア一覧</span></li>
 </ol>
 
-<form method="post" action="areas/update">
+<form action="" method="POST">
 	<table class="tbl_type06 w100">
 		<tr>
 			<th class="w13">エリアコード</th>
-			<td class="w32"><input class="w90" type="text" name="area_cd"></td>
+			<td class="w32"><input name="area_cd" class="w90" type="text" name="area_cd"></td>
 			<th class="w13">エリア名</th>
-			<td class="w32"><input class="w90" type="text" name="area_name"></td>
+			<td class="w32"><input name="area_name" class="w90" type="text" name="area_name"></td>
 			<td class="w10 btn"><input type="submit" value="検索"></td>
 		</tr>
 	</table>
@@ -23,10 +23,10 @@
 	<?php foreach ($data as $record): ?>
 	<tr>
 		<td>
-			<a href="detail?id=<?php echo $record['id']; ?>"><?php echo $record['area_cd']; ?></a>
+			<a href="detail/<?php echo $record['id']; ?>"><?php echo $record['area_cd']; ?></a>
 		</td>
 		<td>
-			<a href="detail?id=<?php echo $record['id']; ?>"><?php echo $record['area_name']; ?></a>
+			<a href="detail/<?php echo $record['id']; ?>"><?php echo $record['area_name']; ?></a>
 		</td>
 	</tr>	
 	<?php endforeach ?>

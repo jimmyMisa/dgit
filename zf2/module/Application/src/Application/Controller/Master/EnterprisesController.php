@@ -11,23 +11,16 @@ namespace Application\Controller\Master;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Application\Model\Branch;
+use Application\Model\Enterprise;
 
-class BranchsController extends AbstractActionController
+class EnterprisesController extends AbstractActionController
 {
     public function indexAction()
     {
 	
-        $branch = $this->getServiceLocator()->get('Model\Branch');
+        $enterprise = $this->getServiceLocator()->get('Model\Enterprise');
 
-		if($data=$this->request->isPost()){
-			$data=$this->request->getPost()->toArray();
-			$data = $branch->getRecordWhere($data);
-			
-		}
-		else{
-			$data = $branch->getRecord();
-		}
+        $data = $enterprise->getRecord();
 
         $view = new ViewModel(array(
                 'data' => $data,
@@ -41,20 +34,30 @@ class BranchsController extends AbstractActionController
     {   
     	$id=$this->getEvent()->getRouteMatch()->getParam('id');
 		
-        $branch = $this->getServiceLocator()->get('Model\Branch');
-        $data = $branch->getRecord($id);
+        $enterprise = $this->getServiceLocator()->get('Model\Enterprise');
+        $data = $enterprise->getRecord($id);
 
         $view = new ViewModel(array(
                 'data' => $data,
             ));
         return $view;
     }
+    public function deleteAction()
+    {   
+    	$id=$this->getEvent()->getRouteMatch()->getParam('id');
+		
+        $enterprise = $this->getServiceLocator()->get('Model\Enterprise');
+        $data = $enterprise->delete($id);
+
+        $view = new ViewModel();
+        return $view;
+    }
     public function editAction()
     {   
     	$id=$this->getEvent()->getRouteMatch()->getParam('id');
 		
-        $branch = $this->getServiceLocator()->get('Model\Branch');
-        $data = $branch->getRecord($id);
+        $enterprise = $this->getServiceLocator()->get('Model\Enterprise');
+        $data = $enterprise->getRecord($id);
 
         $view = new ViewModel(array(
                 'data' => $data,
@@ -68,9 +71,10 @@ class BranchsController extends AbstractActionController
 		
 		$data=$this->request->getPost()->toArray();
 		$data['id']=$id;
-        $branch = $this->getServiceLocator()->get('Model\Branch');
+        $enterprise = $this->getServiceLocator()->get('Model\Enterprise');
 		
-		$updated = $branch->updateRecord($data);
+		$updated = $enterprise->updateRecord($data);
+		var_dump($data);
 		
         $view = new ViewModel(array(
 				'id' => $data['id'],

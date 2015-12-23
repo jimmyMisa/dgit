@@ -1,34 +1,34 @@
-		<ol id="plist" class="clearfix">
-			<li><a href="index.html">トップページ</a></li>
-			<li><a href="eria01.html">エリア一覧</a></li>
-			<li><a href="eria01.html">エリア詳細</a></li>
-			<li><span>エリア詳細編集</span></li>
-		</ol>
-		<form method="post" action="update">
-		<table class="tbl_type01 mb1e w100">
-			<?php foreach ($data as $record):
-				$id=$record['id']; 
-			?>
-			<input type='text' name="id" value="<?php echo $id; ?>" style="display:none;">
-			<tr>
-				<th class="w25">エリアコード</th>
-				<td class="w75">
-					<input class="w60" type="text" value="<?php echo $record['area_cd']; ?>" name="area_cd">
-				</td>
-			</tr>
-			<tr>
-				<th>エリア名</th>
-				<td>
-					<input class="w60" type="text" value="<?php echo $record['area_name']; ?>" name="area_name">
-				</td>
-			</tr>
-			<?php endforeach ?>
-			
-		</table>
 
-		<div class="ta_c">
-			<button onclick="location.href='detail?id=<?php echo $id; ?>'">戻る</button>　
-			<input type="submit" value="編集"/>
-		</div>
+<?php foreach ($data as $record):
+?>
+<ol id="plist" class="clearfix">
+	<li><a href="index.html">トップページ</a></li>
+	<li><a href="../index">エリア一覧</a></li>
+	<li><a href="../detail/<?php echo $record['id']; ?>">エリア詳細</a></li>
+	<li><span>エリア詳細編集</span></li>
+</ol>
+<form method="post" action="../update/<?php echo $record['id']; ?>">
+<table class="tbl_type01 mb1e w100">
+	<input type='text' name="id" value="<?php echo $record['id']; ?>" style="display:none;">
+	<tr>
+		<th class="w25">エリアコード</th>
+		<td class="w75">
+			<input class="w60" type="text" value="<?php echo $record['area_cd']; ?>" name="area_cd">
+		</td>
+	</tr>
+	<tr>
+		<th>エリア名</th>
+		<td>
+			<input class="w60" type="text" value="<?php echo $record['area_name']; ?>" name="area_name">
+		</td>
+	</tr>
+	
+</table>
 
-		</form>
+<div class="ta_c">
+	<button onclick="event.preventDefault();location.href='../detail/<?php echo $record['id']; ?>'">戻る</button>　
+	<input type="submit" value="編集"/>
+</div>
+
+</form>
+<?php endforeach ?>

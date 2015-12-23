@@ -1,16 +1,16 @@
 
 
-<ol id="plist" class="clearfix">
-	<li><a href="index.html">トップページ</a></li>
-	<li><a href="eigyo01.html.html">営業所一覧</a></li>
-	<li><a href="eigyo02.html.html">営業所詳細</a></li>
-	<li><span>営業所詳細編集</span></li>
-</ol>
-
-
 <?php
 	foreach($data as $branch){
 ?>
+
+<ol id="plist" class="clearfix">
+	<li><a href="index.html">トップページ</a></li>
+	<li><a href="../index">営業所一覧</a></li>
+	<li><a href="../detail/<?php echo $branch['id']; ?>">営業所詳細</a></li>
+	<li><span>営業所詳細編集</span></li>
+</ol>
+
 <form action="../update/<?php echo $branch['id']; ?>" method="POST">
 	<table class="tbl_type01 mb1e w100">
 		<tr>
@@ -44,7 +44,7 @@
 	</table>
 
 	<div class="ta_c">
-		<button onclick="event.preventDefault();location.href='../index'">戻る</button>
+		<button onclick="event.preventDefault();location.href='../detail/<?php echo $branch['id']; ?>'">戻る</button>
 		<button onclick="event.preventDefault();this.form.submit()'">編集</button>
 	</div>
 </form>
